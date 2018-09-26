@@ -1,15 +1,20 @@
 <% @dest_json.each do |showdest| %>
-  <div>
-  <h3> DESTINATION: <%= showdest["name"] %>, <i>city:</i> <%= showdest["city"] %>, <i>country:</i> <%= showdest["country"] %>, with an average rating: <%= showdest["avg_rating"] %></h3>
-  <% @rev_json.each do |showrev| %>
-    <% if showrev["destination_id"] == showdest["id"] %>
-      <h4> &nbsp; &nbsp;REVIEW: <%= showrev["blurb"] %></h4>
-      <% @user_json.each do |showuser| %>
-        <% if showrev["user_id"] == showuser["id"] %>
-          <h5> &nbsp; &nbsp; &nbsp; &nbsp;USER: <a href="mailto:<%= showuser["email"] %>"><%= showuser["name"] %></a></h5>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <h3 class="panel-title"><%= showdest["name"] %>, <i>city:</i> <%= showdest["city"] %>, <i>country:</i> <%= showdest["country"] %>, <i>with an average rating:</i> <%= showdest["avg_rating"] %></h3>
+  </div>
+    <div class="panel-body">
+      <% @rev_json.each do |showrev| %>
+        <% if showrev["destination_id"] == showdest["id"] %>
+          <h4> &nbsp; &nbsp;REVIEW: <%= showrev["blurb"] %></h4>
+          <% @user_json.each do |showuser| %>
+            <% if showrev["user_id"] == showuser["id"] %>
+              <h5> &nbsp; &nbsp; &nbsp; &nbsp;USER: <a href="mailto:<%= showuser["email"] %>"><%= showuser["name"] %></a></h5>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-  <% end %>
+    </div>
+
   </div>
 <% end %>
