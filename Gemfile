@@ -15,10 +15,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rest-client'
 gem 'jquery-rails'
 gem 'pivotal_git_scripts'
+gem 'httparty'
+gem 'bootstrap-sass', '~> 3.3.7' 
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :development do
